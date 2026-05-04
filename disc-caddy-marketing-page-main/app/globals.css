@@ -1,0 +1,110 @@
+@import "tailwindcss";
+
+/* Dark (default: matches first paint before theme script) */
+:root,
+.dark {
+  color-scheme: dark;
+  --background: #000000;
+  --foreground: #f5f5f7;
+  --muted: #a1a1a6;
+  --muted-strong: #d2d2d7;
+  --surface: #1d1d1f;
+  --surface-elevated: #2a2a2d;
+  --panel: #0a0a0a;
+  --panel-soft: #111113;
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --accent: #f72a23;
+  --accent-hover: #ff4d44;
+  --ring: rgba(247, 42, 35, 0.45);
+  --card: #161618;
+}
+
+.light {
+  color-scheme: light;
+  --background: #ffffff;
+  --foreground: #1d1d1f;
+  --muted: #6e6e73;
+  --muted-strong: #424245;
+  --surface: #f5f5f7;
+  --surface-elevated: #e8e8ed;
+  --panel: #fbfbfd;
+  --panel-soft: #f5f5f7;
+  --border: rgba(0, 0, 0, 0.10);
+  --border-strong: rgba(0, 0, 0, 0.18);
+  --accent: #e02118;
+  --accent-hover: #b8170f;
+  --ring: rgba(224, 33, 24, 0.4);
+  --card: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-strong: var(--muted-strong);
+  --color-surface: var(--surface);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-panel: var(--panel);
+  --color-panel-soft: var(--panel-soft);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-card: var(--card);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Apple-style headline display utilities (Tailwind v4 custom utilities) */
+@utility headline-xxl {
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.028em;
+  font-weight: 600;
+}
+@utility headline-xl {
+  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  font-weight: 600;
+}
+@utility headline-lg {
+  font-size: clamp(1.75rem, 3.6vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -0.018em;
+  font-weight: 600;
+}
+@utility eyebrow {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility fade-edges-x {
+  mask-image: linear-gradient(to right, transparent 0, #000 3%, #000 97%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 3%, #000 97%, transparent 100%);
+}
